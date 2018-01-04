@@ -10,8 +10,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { FeedPageModule } from './../pages/feed/feed.module';
 import { IntroPageModule } from './../pages/intro/intro.module';
 
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MoovieProvider } from '../providers/moovie/moovie';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FeedPageModule,
-    IntroPageModule
+    IntroPageModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,7 +43,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MoovieProvider
   ]
 })
 export class AppModule {}
