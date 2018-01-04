@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { MoovieProvider } from './../../providers/moovie/moovie';
 import { errorHandler } from '@angular/platform-browser/src/browser';
@@ -23,32 +23,68 @@ export class FeedPage {
     time_comment: "8h ago"
   }
 
+  public loader;
+  public refresher;
+  public isRefreshing: boolean = false;
+
   public lista_filmes = new Array<any>();
 
-  public nomeUsuario : string = "Francinaldo Freitas";
+  abreCarregando() {
+    this.loader = this.loadingCtrl.create({
+      content: "Carregando lista de filmes..."
+    });
+    this.loader.present();
+  }
+
+  fechaCarregando() {
+    this.loader.dismiss();
+  }
+  public nomeUsuario: string = "Francinaldo Freitas";
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
-    private movieProvider: MoovieProvider
-    ) {
+    private movieProvider: MoovieProvider,
+    public loadingCtrl: LoadingController
+  ) {
   }
-  
+
   public somaDoisNumeros(num1: number, num2: number): void {
     alert(num1 + num2);
   }
 
-  ionViewDidLoad() {    
+  doRefresh(refresher) {
+    this.refresher = refresher;
+    this.isRefreshing = true;
+    this.carregarFilmes();
+  }
+
+  ionViewDidEnter() {
+    this.carregarFilmes();
+  }
+
+
+  carregarFilmes() {
+    this.abreCarregando();
+
     this.movieProvider.getLatestMovies().subscribe(
-      data=> {
+      data => {
         const response = (data as any);
         this.lista_filmes = response.results;
-        
+        this.fechaCarregando();
+        if (this.isRefreshing) {
+          this.refresher.complete();
+          this.isRefreshing = false;
+        }
       }, error => {
-        console.log(error);
-        
+        this.fechaCarregando();
+        if (this.isRefreshing) {
+          this.refresher.complete();
+          this.isRefreshing = false;
+        }
       }
     );
   }
+
 
 }
