@@ -1,3 +1,10 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
 <ion-content class="card-background-page">
   <ion-card>
     <img src="assets/images/francinaldo.png" />
@@ -7,11 +14,15 @@
     </div>
   </ion-card>
   <ion-card>
-      <img src="assets/images/rancho.png" />
-      <div class="card-title">Nasceu em: {{  objetoPerfil.cidadeNatal }}</div>
-      <div>
-        <p><span>Data: {{ objetoPerfil.nascimento }} </span></p> 
-        <p><strong>Francinaldo é um guerreiro battlegrounds XboxOne !</strong></p>      
-      </div>
-    </ion-card>
+    <img src="assets/images/rancho.png" />
+    <div class="card-title">Nasceu em: {{ objetoPerfil.cidadeNatal }}</div>
+    <div>
+      <p>
+        <span>Data: {{ objetoPerfil.nascimento }} </span>
+      </p>
+      <p>
+        <strong>Francinaldo é um guerreiro battlegrounds XboxOne !</strong>
+      </p>
+    </div>
+  </ion-card>
 </ion-content>
