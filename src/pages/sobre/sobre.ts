@@ -86,7 +86,7 @@ export class SobrePage {
     try{
       await this.tts.speak({
           text: (this.text),
-          locale: 'pt_BR',
+          locale: 'pt-BR',
           rate: 0.75}
       );
       console.log("Successfully spoke " + this.text);      
