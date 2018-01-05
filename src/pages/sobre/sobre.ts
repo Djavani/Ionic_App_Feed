@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { TextToSpeech } from '@ionic-native/text-to-speech';
 
 @IonicPage()
 @Component({
@@ -10,7 +11,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   templateUrl: 'sobre.html',
   providers: [
     Camera,
-    BarcodeScanner
+    BarcodeScanner,
+    TextToSpeech
   ]
 })
 export class SobrePage {
@@ -19,20 +21,21 @@ export class SobrePage {
 
   public objetoBarCode = {
     Text: "",
-    Format: ""    
+    Format: ""
   }
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private camera: Camera,
-    private barcodeScanner: BarcodeScanner
+    private barcodeScanner: BarcodeScanner,
+    private tts: TextToSpeech
   ) {
   }
 
   ionViewDidLoad() {
     console.log(this.objetoBarCode);
-    
+
   }
 
   tirarFoto() {
@@ -42,24 +45,35 @@ export class SobrePage {
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     }
-    
+
     this.camera.getPicture(options).then((imageData) => {
-     this.foto = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {     
+      this.foto = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
     });
   }
 
   lerCodigoBarras() {
     this.barcodeScanner.scan().then((barcodeData) => {
-      // Success! Barcode data is here      
+      // Success! Barcode data is here    
       this.objetoBarCode.Text = barcodeData.text;
       this.objetoBarCode.Format = barcodeData.format;
-      
-     }, (err) => {
-         // An error occurred
-         console.log(err);
-         
-     });
+
+    }, (err) => {
+      // An error occurred
+      console.log(err);
+
+    }
+    );
+
+
   }
+
+  traduzCodigoBara() {
+    this.tts.speak((this.objetoBarCode.Text))
+  .then(() => console.log('Success'))
+  .catch((reason: any) => console.log(reason));
+  }
+ 
+
 
 }

@@ -23,4 +23,8 @@
         <ion-label>Formato: {{ objetoBarCode.Format }} </ion-label>
       </ion-item>
   </div>
+  <br>
+  <div *ngIf="((objetoBarCode.Text).length) > 0">
+      <button ion-button block color="dark" (click)="traduzCodigoBara()">Traduzir Código</button>
+  </div>
 </ion-content>
