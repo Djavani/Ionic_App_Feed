@@ -77,17 +77,14 @@ export class SobrePage {
   .catch((reason: any) => console.log(reason));
   }
  
-  falaAlgumacoisa() {
-    this.tts.speak({
-      text: "Djavani é o bichão doido",
-      locale: 'pt_BR',
-      rate: 0.75
-    })
-  }
-
   async sayText():Promise<any>{
     try{
-      await this.tts.speak(this.text);
+      await this.tts.speak(
+        {
+          text: this.text,
+          locale: 'pt_BR',
+          rate: 0.75}
+      );
       console.log("Successfully spoke " + this.text);      
     }catch(erro){
       console.log(erro);      
