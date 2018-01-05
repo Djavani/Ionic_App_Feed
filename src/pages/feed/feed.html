@@ -1,12 +1,3 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>feed</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
@@ -49,4 +40,9 @@
     </ion-row>
     <button ion-button block (click)="abrirDetalhes(filme)">Detalhes</button>
   </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

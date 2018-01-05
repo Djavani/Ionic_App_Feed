@@ -5,11 +5,14 @@
     </button>
   </ion-navbar>
 </ion-header>
+
 <ion-content class="card-background-page">
   <ion-card>
-    <img src="assets/images/francinaldo.png" />
     <div>
-      <h2>{{ objetoPerfil.nome }}</h2>
+        <h2>{{ objetoPerfil.nome }}</h2>
+    </div>
+    <img src="assets/images/francinaldo.png" />
+    <div>      
       <p>{{ objetoPerfil.descricao }}</p>
     </div>
   </ion-card>
@@ -18,7 +21,7 @@
     <div class="card-title">Nasceu em: {{ objetoPerfil.cidadeNatal }}</div>
     <div>
       <p>
-        <span>Data: {{ objetoPerfil.nascimento }} </span>
+        <span>Nasceu em {{ objetoPerfil.nascimento }} e gosta de tocar gaita.</span>
       </p>
       <p>
         <strong>Francinaldo é um guerreiro battlegrounds XboxOne !</strong>

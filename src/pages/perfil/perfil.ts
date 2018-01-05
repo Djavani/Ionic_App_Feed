@@ -10,7 +10,7 @@ export class PerfilPage {
 
   public objetoPerfil = {
     nome: "Francinaldo França",
-    nascimento: "Janeiro 4, 1975",
+    nascimento: "4 de Janeiro de 1975",
     descricao: "Bora partir pra bagaceira negada!, só sangue no zoi e cartucheira engatilhada",
     cidadeNatal: "Rancho Abidoral"    
   }
@@ -19,7 +19,7 @@ export class PerfilPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PerfilPage');
+    
   }
 
 }
