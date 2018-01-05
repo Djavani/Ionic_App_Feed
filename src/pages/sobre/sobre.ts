@@ -70,6 +70,8 @@ export class SobrePage {
 
   traduzCodigoBara() {
     this.tts.speak((this.objetoBarCode.Text))
+    this.tts.speak(("O Código é: "));
+    this.tts.speak((this.objetoBarCode.Format))
   .then(() => console.log('Success'))
   .catch((reason: any) => console.log(reason));
   }
