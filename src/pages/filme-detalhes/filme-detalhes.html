@@ -1,18 +1,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>feed</ion-title>
+    <ion-title>filmeDetalhes</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
-  <ion-card *ngFor="let filme of lista_filmes">
+  <ion-card *ngIf="filme">
 
     <ion-item>
       <ion-avatar item-start>
@@ -28,7 +24,7 @@
       <p>{{ filme.overview }}</p>
     </ion-card-content>
 
-    <ion-row>
+
       <ion-col>
         <button ion-button icon-left clear small>
           <ion-icon name="thumbs-up"></ion-icon>
@@ -46,7 +42,7 @@
           Rating: {{ filme.vote_average }}
         </ion-note>
       </ion-col>
-    </ion-row>
-    <button ion-button block (click)="abrirDetalhes(filme)">Detalhes</button>
+ 
+
   </ion-card>
 </ion-content>

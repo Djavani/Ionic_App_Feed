@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 
 import { MoovieProvider } from './../../providers/moovie/moovie';
 import { errorHandler } from '@angular/platform-browser/src/browser';
+import { FilmeDetalhesPage } from './../filme-detalhes/filme-detalhes';
 
 @IonicPage()
 @Component({
@@ -61,6 +62,12 @@ export class FeedPage {
 
   ionViewDidEnter() {
     this.carregarFilmes();
+  }
+
+  abrirDetalhes(filme) {
+    console.log(filme);
+    console.log(filme.id);
+    this.navCtrl.push(FilmeDetalhesPage, { id: filme.id })
   }
 
 

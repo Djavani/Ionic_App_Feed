@@ -18,6 +18,7 @@ import { MoovieProvider } from '../providers/moovie/moovie';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
 import { SobrePageModule } from '../pages/sobre/sobre.module';
+import { FilmeDetalhesPageModule } from '../pages/filme-detalhes/filme-detalhes.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { SobrePageModule } from '../pages/sobre/sobre.module';
     HttpClientModule,
     ConfiguracoesPageModule,
     SobrePageModule,
-    PerfilPageModule
+    PerfilPageModule,
+    FilmeDetalhesPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
