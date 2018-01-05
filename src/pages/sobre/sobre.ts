@@ -73,7 +73,7 @@ export class SobrePage {
     this.tts.speak(
       {
         text: (this.objetoBarCode.Text),
-        locale: 'pt_BR',
+        locale: 'pt-BR',
         rate: 0.75
       }
     )
