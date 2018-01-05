@@ -72,7 +72,7 @@ export class SobrePage {
   traduzCodigoBara() {
     this.tts.speak(
       {
-        text: (this.objetoBarCode.Text),
+        text: (this.objetoBarCode.Text + this.objetoBarCode.Format),
         locale: 'pt-BR',
         rate: 0.75
       }
