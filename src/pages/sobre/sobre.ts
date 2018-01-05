@@ -16,8 +16,11 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 export class SobrePage {
 
   foto = "";
-  barcodeText = ""
-  barcodeFormat = ""
+
+  public objetoBarCode = {
+    Text: "",
+    Format: ""    
+  }
 
   constructor(
     public navCtrl: NavController, 
@@ -28,6 +31,7 @@ export class SobrePage {
   }
 
   ionViewDidLoad() {
+    console.log(this.objetoBarCode);
     
   }
 
@@ -48,8 +52,8 @@ export class SobrePage {
   lerCodigoBarras() {
     this.barcodeScanner.scan().then((barcodeData) => {
       // Success! Barcode data is here      
-      this.barcodeText = barcodeData.text;
-      this.barcodeFormat = barcodeData.format;
+      this.objetoBarCode.Text = barcodeData.text;
+      this.objetoBarCode.Format = barcodeData.format;
       
      }, (err) => {
          // An error occurred

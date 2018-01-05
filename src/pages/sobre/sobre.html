@@ -14,9 +14,8 @@
   <div>
     <button ion-button block color="secondary" (click)="lerCodigoBarras()">Codigo Barras</button>
   </div>
-  <ion-item ngIf*="barcodeText">
-    <ion-label fixed>Código de barras capturado</ion-label>
-    <ion-input type="text" {{ barcodeText }}></ion-input>
-    <ion-input type="text" {{ barcodeFormat }}></ion-input>
+  <br>
+  <ion-item *ngIf="((objetoBarCode.Text).length) > 0">    
+    <ion-label fixed>Código: {{ objetoBarCode.Text }} </ion-label>
   </ion-item>
 </ion-content>
