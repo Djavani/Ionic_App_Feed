@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @IonicPage()
 @Component({
   selector: 'page-sobre',
   templateUrl: 'sobre.html',
   providers: [
-    Camera
+    Camera,
+    BarcodeScanner
   ]
 })
 export class SobrePage {
@@ -18,7 +20,8 @@ export class SobrePage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private camera: Camera
+    private camera: Camera,
+    private barcodeScanner: BarcodeScanner
   ) {
   }
 
@@ -38,6 +41,18 @@ export class SobrePage {
      this.foto = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {     
     });
+  }
+
+  lerCodigoBarras() {
+    this.barcodeScanner.scan().then((barcodeData) => {
+      // Success! Barcode data is here      
+      alert(barcodeData.text);
+      
+     }, (err) => {
+         // An error occurred
+         console.log(err);
+         
+     });
   }
 
 }
