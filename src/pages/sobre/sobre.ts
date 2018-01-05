@@ -16,10 +16,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 export class SobrePage {
 
   foto = "";
-  barcode = {
-    text : "",
-    format : ""
-  }
+  barcodeText = ""
+  barcodeFormat = ""
 
   constructor(
     public navCtrl: NavController, 
