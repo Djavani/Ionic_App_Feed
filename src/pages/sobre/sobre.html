@@ -20,11 +20,19 @@
       <ion-label>Código: {{ objetoBarCode.Text }} </ion-label>
     </ion-item>
     <ion-item>
-        <ion-label>Formato: {{ objetoBarCode.Format }} </ion-label>
-      </ion-item>
+      <ion-label>Formato: {{ objetoBarCode.Format }} </ion-label>
+    </ion-item>
   </div>
   <br>
   <div *ngIf="((objetoBarCode.Text).length) > 0">
-      <button ion-button block color="dark" (click)="traduzCodigoBara()">Traduzir Código</button>
+    <button ion-button block color="dark" (click)="traduzCodigoBara()">Traduzir Código</button>
+  </div>
+  <br>
+  <ion-item>
+    <ion-label stacked>Texto</ion-label>
+    <ion-textarea rows="5" [(ngModel)]="text"></ion-textarea>
+  </ion-item>
+  <div *ngIf="text">
+    <button clear ion-button (click)="sayText()">Falar o texto</button>
   </div>
 </ion-content>

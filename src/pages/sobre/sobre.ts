@@ -18,6 +18,7 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
 export class SobrePage {
 
   foto = "";
+  text: string;
 
   public objetoBarCode = {
     Text: "",
@@ -70,12 +71,29 @@ export class SobrePage {
 
   traduzCodigoBara() {
     this.tts.speak((this.objetoBarCode.Text))
-    this.tts.speak(("O Código é: "));
-    this.tts.speak((this.objetoBarCode.Format))
+    //this.tts.speak(("O Código é: "));
+    //this.tts.speak((this.objetoBarCode.Format))
   .then(() => console.log('Success'))
   .catch((reason: any) => console.log(reason));
   }
  
+  falaAlgumacoisa() {
+    this.tts.speak({
+      text: "Djavani é o bichão doido",
+      locale: 'pt_BR',
+      rate: 0.75
+    })
+  }
 
+  async sayText():Promise<any>{
+    try{
+      await this.tts.speak(this.text);
+      console.log("Successfully spoke " + this.text);      
+    }catch(erro){
+      console.log(erro);      
+    }
+  }
+
+  
 
 }
