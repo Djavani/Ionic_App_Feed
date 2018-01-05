@@ -48,7 +48,8 @@ export class SobrePage {
   lerCodigoBarras() {
     this.barcodeScanner.scan().then((barcodeData) => {
       // Success! Barcode data is here      
-      this.barcode = barcodeData.text;
+      this.barcodeText = barcodeData.text;
+      this.barcodeFormat = barcodeData.format;
       
      }, (err) => {
          // An error occurred
