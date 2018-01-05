@@ -15,7 +15,12 @@
     <button ion-button block color="secondary" (click)="lerCodigoBarras()">Codigo Barras</button>
   </div>
   <br>
-  <ion-item *ngIf="((objetoBarCode.Text).length) > 0">    
-    <ion-label fixed>Código: {{ objetoBarCode.Text }} </ion-label>
-  </ion-item>
+  <div *ngIf="((objetoBarCode.Text).length) > 0">
+    <ion-item>
+      <ion-label fixed>Código: {{ objetoBarCode.Text }} </ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>Formato: {{ objetoBarCode.Format }} </ion-label>
+      </ion-item>
+  </div>
 </ion-content>
