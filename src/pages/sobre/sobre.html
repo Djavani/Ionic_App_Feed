@@ -11,5 +11,12 @@
   <img *ngIf="foto" [src]="foto" alt="">
   <button ion-button block (click)="tirarFoto()">Tirar Foto</button>
   <br>
-  <button ion-button block color="secondary" (click)="lerCodigoBarras()">Codigo Barras</button>
+  <div>
+    <button ion-button block color="secondary" (click)="lerCodigoBarras()">Codigo Barras</button>
+  </div>
+  <ion-item ngIf*="barcode">
+    <ion-label fixed>Código de barras capturado</ion-label>
+    <ion-input type="text" {{ barcode.text }}></ion-input>
+    <ion-input type="text" {{ barcode.format }}></ion-input>
+  </ion-item>
 </ion-content>
