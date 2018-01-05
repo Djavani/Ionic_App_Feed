@@ -70,18 +70,22 @@ export class SobrePage {
   }
 
   traduzCodigoBara() {
-    this.tts.speak((this.objetoBarCode.Text))
-    //this.tts.speak(("O Código é: "));
-    //this.tts.speak((this.objetoBarCode.Format))
+    this.tts.speak(
+      {
+        text: (this.objetoBarCode.Text),
+        locale: 'pt_BR',
+        rate: 0.75
+      }
+    )
+
   .then(() => console.log('Success'))
   .catch((reason: any) => console.log(reason));
   }
  
   async sayText():Promise<any>{
     try{
-      await this.tts.speak(
-        {
-          text: this.text,
+      await this.tts.speak({
+          text: (this.text),
           locale: 'pt_BR',
           rate: 0.75}
       );
