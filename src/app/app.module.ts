@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
 import { SobrePageModule } from '../pages/sobre/sobre.module';
 import { FilmeDetalhesPageModule } from '../pages/filme-detalhes/filme-detalhes.module';
-
+import { StreamingMedia } from '@ionic-native/streaming-media';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,8 @@ import { FilmeDetalhesPageModule } from '../pages/filme-detalhes/filme-detalhes.
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MoovieProvider
+    MoovieProvider,
+    StreamingMedia
   ]
 })
 export class AppModule {}

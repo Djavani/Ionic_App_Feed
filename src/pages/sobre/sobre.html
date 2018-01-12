@@ -35,4 +35,10 @@
   <div *ngIf="text">
     <button clear ion-button (click)="sayText()">Falar o texto</button>
   </div>
+
+  <div>
+      <button ion-button block (click)="startVideo()">Start Video</button>
+    <button ion-button block (click)="startAudio()">Start Audio</button>
+    <button ion-button block color="danger" (click)="stopAudio()">Stop Audio</button>
+  </div>
 </ion-content>

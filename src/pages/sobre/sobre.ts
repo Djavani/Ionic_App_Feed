@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
+import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
+
 
 @IonicPage()
 @Component({
@@ -30,7 +32,8 @@ export class SobrePage {
     public navParams: NavParams,
     private camera: Camera,
     private barcodeScanner: BarcodeScanner,
-    private tts: TextToSpeech
+    private tts: TextToSpeech,
+    private streamingMedia: StreamingMedia
   ) {
   }
 
@@ -95,6 +98,31 @@ export class SobrePage {
     }
   }
 
-  
+  startVideo() {
+    let options: StreamingVideoOptions = {
+      successCallback: () =>{console.log('Streaming iniciou')},
+      errorCallback: () =>{console.log('Algum erro')},
+      orientation: 'landscape'
+    };
+
+    this.streamingMedia.playVideo('https://www.youtube.com/watch?v=G9pXYqN9jH8', options)
+
+  }
+
+  startAudio() {
+    let options: StreamingAudioOptions = {
+      successCallback: () =>{console.log('Streaming iniciou')},
+      errorCallback: () =>{console.log('Algum erro')},
+      initFullscreen: false
+    }
+
+    this.streamingMedia.playAudio('C:\podcasts\Podcast_SuperNovas_70.mp3', options);
+  }
+
+
+  stopAudio() {
+    this.streamingMedia.stopAudio();
+
+  }  
 
 }
