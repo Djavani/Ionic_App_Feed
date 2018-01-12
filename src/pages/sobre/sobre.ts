@@ -116,7 +116,7 @@ export class SobrePage {
       initFullscreen: false
     }
 
-    this.streamingMedia.playAudio('C:\podcasts\Podcast_SuperNovas_70.mp3', options);
+    this.streamingMedia.playAudio('http://feeds.soundcloud.com/stream/382225679-mucaoaovivo-programa-11012018.mp3', options);
   }
 
 
