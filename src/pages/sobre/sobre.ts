@@ -105,7 +105,7 @@ export class SobrePage {
       orientation: 'landscape'
     };
 
-    this.streamingMedia.playVideo('https://www.youtube.com/watch?v=G9pXYqN9jH8', options)
+    this.streamingMedia.playVideo('http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_30mb.mp4', options)
 
   }
 
@@ -116,7 +116,7 @@ export class SobrePage {
       initFullscreen: false
     }
 
-    this.streamingMedia.playAudio('http://feeds.soundcloud.com/stream/382225679-mucaoaovivo-programa-11012018.mp3', options);
+    this.streamingMedia.playAudio('http://soundbible.com/grab.php?id=2196&type=mp3', options);
   }
 
 
